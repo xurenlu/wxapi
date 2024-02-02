@@ -5,7 +5,7 @@
 # Wechat number: zmx119966
 ####################################################
 
-class WxApi
+class Wxapi
   module Material
     ###
     # 获得临时图片素材的 media_id

@@ -1,8 +1,9 @@
-require "bundler/gem_tasks"
+#require "bundler/gem_tasks"
 task :default => :spec
 
 
 task :upload do |t|
-  sh "gem build wxapi.gemspec"
-  sh "gem push wxapi-#{WxApi::VERSION}.gem"
+  puts "Uploading not implemented"
+  wxApi = Wxapi.new app_id: 'wx3b8fe6d36cc00e3e'
+  puts wxApi.get_access_token
 end

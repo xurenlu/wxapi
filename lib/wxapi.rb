@@ -8,8 +8,11 @@ require "wxapi/aes"
 require "wxapi/utils"
 require "wxapi/user"
 require "wxapi/material"
+require 'rest-client'
+class Wxapi
 
-class WxApi
+
+
   include AccessToken
   include Account
   include Aes
@@ -28,14 +31,14 @@ class WxApi
   #
   #  api.get_access_token
   #
-
   attr_accessor :app_id, :app_secret, :access_token_cache
   attr_accessor :prefix
   def initialize(options={})
     @app_id = options[:app_id]
     @app_secret = options[:app_secret]
     @access_token_cache = options[:access_token_cache]
-    @prefix = options[:api_prefix]
+    @prefix = options[:prefix]
     @prefix="https://api.weixin.qq.com" if @prefix.nil?
   end
+
 end

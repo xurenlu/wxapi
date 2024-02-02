@@ -5,7 +5,7 @@
 # Wechat number: zmx119966
 ####################################################
 
-class WxApi
+class Wxapi
   module Menu
     ###
     # create wechat public menu
@@ -54,7 +54,7 @@ class WxApi
     def query_menu()
       # request access_token
       access_token = get_access_token()
-      response = HTTParty.get("#{prefix}/cgi-bin/menu/get?access_token=#{access_token}").body
+      response = RestClient.get("#{prefix}/cgi-bin/menu/get?access_token=#{access_token}").body
       (JSON.parse response)
     end
 
@@ -65,7 +65,7 @@ class WxApi
     def delete_menu()
       # request access_token
       access_token = get_access_token
-      response = HTTParty.get("#{prefix}/cgi-bin/menu/delete?access_token=#{access_token}").body
+      response = RestClient.get("#{prefix}/cgi-bin/menu/delete?access_token=#{access_token}").body
       (JSON.parse response)
     end
   end

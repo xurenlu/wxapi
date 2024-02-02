@@ -5,7 +5,7 @@
 # Wechat number: zmx119966
 ####################################################
 
-class WxApi
+class Wxapi
   module User
     # 获取用户信息
     # @return <JSON>

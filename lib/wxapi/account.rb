@@ -5,7 +5,7 @@
 # Wechat number: zmx119966
 ####################################################
 
-class WxApi
+class Wxapi
   module Account
     ###
     # 获取临时场景带惨二维码，30天有效
@@ -81,7 +81,7 @@ class WxApi
       end
 
       File.open(path, 'wb') do |f|
-        f.write(HTTParty.get(url).body)
+        f.write(RestClient.get(url).body)
       end
 
       path

@@ -1,3 +1,3 @@
-class WxApi
-  VERSION = "1.0.0"
+class Wxapi
+  VERSION = "1.0.2"
 end

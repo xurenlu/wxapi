@@ -5,7 +5,7 @@
 # Wechat number: zmx119966
 ####################################################
 
-class WxApi
+class Wxapi
   module Aes
     # 解密
     def decrypt(key, dicrypted_string)

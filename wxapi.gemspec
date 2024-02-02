@@ -5,7 +5,7 @@ require "wxapi/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "wxapi"
-  spec.version       = WxApi::VERSION
+  spec.version       = Wxapi::VERSION
   spec.authors       = ["黄滚 twitter: @hg_nohair"]
   spec.email         = ["xurenlu@gmail.com"]
 
