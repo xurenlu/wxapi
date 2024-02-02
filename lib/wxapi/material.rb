@@ -5,7 +5,7 @@
 # Wechat number: zmx119966
 ####################################################
 
-class WechatPublicApi
+class WxApi
   module Material
     ###
     # 获得临时图片素材的 media_id
@@ -18,7 +18,7 @@ class WechatPublicApi
     def upload_image_media(file_path)
       # request access_token
       access_token = get_access_token()
-      response = RestClient.post('https://api.weixin.qq.com/cgi-bin/media/upload',
+      response = RestClient.post("#{prefix}/cgi-bin/media/upload",
                                  {
                                      access_token: access_token,
                                      type: 'image',

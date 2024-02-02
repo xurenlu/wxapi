@@ -5,7 +5,7 @@
 # Wechat number: zmx119966
 ####################################################
 
-class WechatPublicApi
+class WxApi
   module Menu
     ###
     # create wechat public menu
@@ -39,7 +39,7 @@ class WechatPublicApi
       access_token = get_access_token()
       post_data = post_data.to_json.gsub(/\\u([0-9a-z]{4})/) {|s| [$1.to_i(16)].pack("U")}
 
-      uri = URI.parse("https://api.weixin.qq.com/cgi-bin/menu/create?access_token=#{access_token}")
+      uri = URI.parse("#{prefix}/cgi-bin/menu/create?access_token=#{access_token}")
       http = Net::HTTP.new(uri.host, uri.port)
       http.use_ssl = true
       http.verify_mode = OpenSSL::SSL::VERIFY_NONE
@@ -54,7 +54,7 @@ class WechatPublicApi
     def query_menu()
       # request access_token
       access_token = get_access_token()
-      response = HTTParty.get("https://api.weixin.qq.com/cgi-bin/menu/get?access_token=#{access_token}").body
+      response = HTTParty.get("#{prefix}/cgi-bin/menu/get?access_token=#{access_token}").body
       (JSON.parse response)
     end
 
@@ -64,8 +64,8 @@ class WechatPublicApi
     #
     def delete_menu()
       # request access_token
-      access_token = get_access_token()
-      response = HTTParty.get("https://api.weixin.qq.com/cgi-bin/menu/delete?access_token=#{access_token}").body
+      access_token = get_access_token
+      response = HTTParty.get("#{prefix}/cgi-bin/menu/delete?access_token=#{access_token}").body
       (JSON.parse response)
     end
   end

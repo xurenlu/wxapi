@@ -5,7 +5,7 @@
 # Wechat number: zmx119966
 ####################################################
 
-class WechatPublicApi
+class WxApi
   module AccessToken
 
     ###
@@ -18,7 +18,7 @@ class WechatPublicApi
       access_token_cache = @access_token_cache
 
       unless access_token_cache
-        response = HTTParty.get("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=#{appid}&secret=#{secret}").body
+        response = HTTParty.get("#{prefix}/cgi-bin/token?grant_type=client_credential&appid=#{appid}&secret=#{secret}").body
         response_body = (JSON.parse response)
 
         # 抛出异常
@@ -30,7 +30,7 @@ class WechatPublicApi
       _cache_key = "#{appid}_access_token"
       _cached_access_token = $redis.get _cache_key
       if _cached_access_token == nil or _cached_access_token == ''
-        response = HTTParty.get("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=#{appid}&secret=#{secret}").body
+        response = HTTParty.get("#{prefix}/cgi-bin/token?grant_type=client_credential&appid=#{appid}&secret=#{secret}").body
         response_body = (JSON.parse response)
 
         # 抛出异常

@@ -5,7 +5,7 @@
 # Wechat number: zmx119966
 ####################################################
 
-class WechatPublicApi
+class WxApi
   module Kf
 
     ###
@@ -26,7 +26,7 @@ class WechatPublicApi
       # get access_token
       access_token = get_access_token()
 
-      uri = URI.parse("https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=#{access_token}")
+      uri = URI.parse("#{prefix}/cgi-bin/message/custom/send?access_token=#{access_token}")
       http = Net::HTTP.new(uri.host, uri.port)
       http.use_ssl = true
       http.verify_mode = OpenSSL::SSL::VERIFY_NONE

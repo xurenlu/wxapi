@@ -5,7 +5,7 @@
 # Wechat number: zmx119966
 ####################################################
 
-class WechatPublicApi
+class WxApi
   module Account
     ###
     # 获取临时场景带惨二维码，30天有效
@@ -16,7 +16,7 @@ class WechatPublicApi
       access_token = get_access_token()
 
       # 获取ticket
-      uri = URI.parse("https://api.weixin.qq.com/cgi-bin/qrcode/create?access_token=#{access_token}")
+      uri = URI.parse("#{prefix}/cgi-bin/qrcode/create?access_token=#{access_token}")
       post_data = {
           'expire_seconds' => 2592000,
           'action_name' => 'QR_SCENE',
@@ -44,7 +44,7 @@ class WechatPublicApi
       access_token = get_access_token()
 
       # 获取ticket
-      uri = URI.parse("https://api.weixin.qq.com/cgi-bin/qrcode/create?access_token=#{access_token}")
+      uri = URI.parse("#{prefix}/cgi-bin/qrcode/create?access_token=#{access_token}")
       post_data = {
           'action_name' => 'QR_LIMIT_STR_SCENE',
           'action_info' => {'scene' => {'scene_id' => sceneid}}}
@@ -96,7 +96,7 @@ class WechatPublicApi
     #
     def get_shorturl(longurl)
       access_token = get_access_token()
-      uri = URI.parse("https://api.weixin.qq.com/cgi-bin/shorturl?access_token=#{access_token}")
+      uri = URI.parse("#{prefix}/cgi-bin/shorturl?access_token=#{access_token}")
       post_data = {action: "long2short", long_url: longurl}
       http = Net::HTTP.new(uri.host, uri.port)
       http.use_ssl = true

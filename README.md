@@ -9,7 +9,7 @@ API长期更新维护，建议使用最新版本。
 添加 Gemfile:
 
 ```ruby
-gem 'wechat_public_api'
+gem 'wxapi'
 ```
 
 执行 bundle:
@@ -18,8 +18,9 @@ gem 'wechat_public_api'
 
 或者直接通过 gem 安装:
 
-    $ gem install wechat_public_api
+    $ gem install wxapi
 
-## 文档
 
-[wechat_public_api开发者使用文档](https://yuque.com/qianlansedehei/wechat_public_api)
+
+项目最早来源于 https://index.ruby-china.com/gems/wechat_public_api
+我在原项目的基础上进行了一些修改和优化，使其更加符合微信公众号开发的规范，增加了更多的扩展性。

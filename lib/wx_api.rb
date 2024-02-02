@@ -1,15 +1,15 @@
-require "wechat_public_api/version"
-require "wechat_public_api/menu"
-require "wechat_public_api/kf_message"
-require "wechat_public_api/templet_message"
-require "wechat_public_api/access_token"
-require "wechat_public_api/account"
-require "wechat_public_api/aes"
-require "wechat_public_api/utils"
-require "wechat_public_api/user"
-require "wechat_public_api/material"
+require "wxapi/version"
+require "wxapi/menu"
+require "wxapi/kf_message"
+require "wxapi/templet_message"
+require "wxapi/access_token"
+require "wxapi/account"
+require "wxapi/aes"
+require "wxapi/utils"
+require "wxapi/user"
+require "wxapi/material"
 
-class WechatPublicApi
+class WxApi
   include AccessToken
   include Account
   include Aes
@@ -30,9 +30,12 @@ class WechatPublicApi
   #
 
   attr_accessor :app_id, :app_secret, :access_token_cache
+  attr_accessor :prefix
   def initialize(options={})
     @app_id = options[:app_id]
     @app_secret = options[:app_secret]
     @access_token_cache = options[:access_token_cache]
+    @prefix = options[:api_prefix]
+    @prefix="https://api.weixin.qq.com" if @prefix.nil?
   end
 end

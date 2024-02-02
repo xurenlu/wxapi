@@ -5,7 +5,7 @@
 # Wechat number: zmx119966
 ####################################################
 
-class WechatPublicApi
+class WxApi
   module User
     # 获取用户信息
     # @return <JSON>
@@ -35,7 +35,7 @@ class WechatPublicApi
     def get_userinfo(openid)
       # request access_token
       access_token = get_access_token()
-      JSON.parse HTTParty.get("https://api.weixin.qq.com/cgi-bin/user/info?access_token=#{access_token}&openid=#{openid}&lang=zh_CN").body
+      JSON.parse RestClient.get("#{prefix}/cgi-bin/user/info?access_token=#{access_token}&openid=#{openid}&lang=zh_CN").body
     end
   end
 end

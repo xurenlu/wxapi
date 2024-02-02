@@ -5,7 +5,7 @@
 # Wechat number: zmx119966
 ####################################################
 
-class WechatPublicApi
+class WxApi
   module Tp
     ###
     # @param <JSON> message
@@ -15,7 +15,7 @@ class WechatPublicApi
       # get access_token
       access_token = get_access_token()
 
-      uri = URI.parse("https://api.weixin.qq.com/cgi-bin/message/template/#{url_params}?access_token=#{access_token}")
+      uri = URI.parse("#{prefix}/cgi-bin/message/template/#{url_params}?access_token=#{access_token}")
       http = Net::HTTP.new(uri.host, uri.port)
       http.use_ssl = true
       http.verify_mode = OpenSSL::SSL::VERIFY_NONE
@@ -95,7 +95,7 @@ class WechatPublicApi
     # 获得模板列表
     def tp_get_all()
       access_token = get_access_token()
-      response = HTTParty.get("https://api.weixin.qq.com/cgi-bin/template/get_all_private_template?access_token=#{access_token}").body
+      response = RestClient.get("#{prefix}cgi-bin/template/get_all_private_template?access_token=#{access_token}").body
       response_body = (JSON.parse response)
       response_body
     end
