@@ -9,6 +9,9 @@ require "wxapi/utils"
 require "wxapi/user"
 require "wxapi/material"
 require 'rest-client'
+require 'wxapi/attach'
+require 'wxapi/tag'
+require 'wxapi/remark'
 class Wxapi
 
 
@@ -22,6 +25,9 @@ class Wxapi
   include Tp
   include User
   include Utils
+  include Attach
+  include Tag
+  include Remark
 
   # 默认不缓存 access_token, access_token_cache = True 缓存
   # @param <hash> aoptions
