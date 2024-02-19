@@ -12,6 +12,7 @@ require 'rest-client'
 require 'wxapi/attach'
 require 'wxapi/tag'
 require 'wxapi/remark'
+require 'wxapi/misc'
 class Wxapi
 
 
@@ -28,6 +29,7 @@ class Wxapi
   include Attach
   include Tag
   include Remark
+  include Misc
 
   # 默认不缓存 access_token, access_token_cache = True 缓存
   # @param <hash> aoptions
@@ -47,4 +49,12 @@ class Wxapi
     @prefix="https://api.weixin.qq.com" if @prefix.nil?
   end
 
+
+  private
+  def test_resp(resp)
+    if resp['errcode'] != 0
+      raise "Error: #{resp['errmsg']}"
+    end
+    resp
+  end
 end

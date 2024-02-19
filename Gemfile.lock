@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    wxapi (1.0.4)
+    wxapi (1.0.8)
 
 GEM
   remote: https://rubygems.org/
